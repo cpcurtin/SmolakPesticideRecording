@@ -618,7 +618,7 @@ function generateSprayNotes(submission) {
 
     SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 15, 1).setValue(Chemicals[i].targetPest);
 
-    SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 16, 1).setValue(Chemicals[i].targetPest);
+    SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 16, 1).setValue(Chemicals[i].applicationMethod);
 
     if (Chemicals[i].REI == ""){
       SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 17, 1).setValue("None");
