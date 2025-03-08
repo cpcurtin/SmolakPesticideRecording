@@ -3,7 +3,7 @@
 
  This script's purpose is to automate recording pesticide records a Smolak Farms. This script works in conjunction with the Pesticide Record Keeping Form Template spreadsheet & the Smolak Farms Pesticide Record Keeping Form.
 
-Last updated: 3/8/25 by Conor Curtin
+Last updated: 3/8/25 by Conor Curtin - Integration with Clasp
 *****************************************************************************/
 
 // License # for authorized applicators
