@@ -21,7 +21,7 @@ class Application{
     this.applicatorName = applicator;
     this.property = property;
     this.crop = crop;
-    this.NAfield = field1;
+    this.NAField = field1;
     this.BoxField = field2;
     this.areaTreated = area;
     this.licNo = "";
@@ -164,7 +164,7 @@ function generateSprayNotes(submission) {
       Chemicals[0].epaRegNo = data;
     };
     if (key == 'What is the active ingredient in chemical 1?'){
-      Chemicals[0].activeTingredient = data;
+      Chemicals[0].activeIngredient = data;
     };
     if (key == 'At what rate per acre was chemical 1 applied? (Number only, no units)'){
       Chemicals[0].rateOfApplication = data;
@@ -601,9 +601,9 @@ function generateSprayNotes(submission) {
     SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 10, 1).setValue(Chemicals[i].name);
 
     // NEED TO DO
-    //SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 11, 1).setValue(Chemicals[i].epaRegNo);
+    SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 11, 1).setValue(Chemicals[i].epaRegNo);
 
-    //SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 12 , 1).setValue(Chemicals[i].activeIngredient);
+    SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 12 , 1).setValue(Chemicals[i].activeIngredient);
 
     SpreadsheetApp.openByUrl(newSheetUrl).getSheetByName("Sheet1").getRange(8 + i, 13, 1).setValue(Chemicals[i].rateOfApplication + " " + Chemicals[i].measurementUnit + "/acre");
     
@@ -674,6 +674,7 @@ function sendEmail(sheetURL, application, chemicals){ // Send confirmation email
   try{
     SpreadsheetApp.openByUrl(sheetURL).addEditor(todaysApplication.applicatorEmail);
     MailApp.sendEmail(todaysApplication.applicatorEmail, "Your Recent Pesticide Record Creation", message);
+    MailApp.sendEmail("agsupervisor@smolakfarms.com", "Your Recent Pesticide Record Creation", message);
   }
   catch{
     MailApp.sendEmail(todaysApplication.applicatorEmail, "Error in Submission", "Could not add editor to new pesticide record");
